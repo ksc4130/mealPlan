@@ -8,6 +8,12 @@ app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views/');
 app.use(express.static(__dirname + '/public'));
 
+
+
+app.get('/food', function () {
+
+});
+
 app.get('*', function (req, res) {
     res.render('layout', {
         title: 'The Club | Meal Plan App'
