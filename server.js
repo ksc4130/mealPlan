@@ -50,7 +50,7 @@ app.delete('/food/:foodId', function (req, res) {
 
 app.get('*', function (req, res) {
     res.render('layout', {
-        title: 'The Club | Meal Plan App'
+        title: 'The Club | Meal Plan'
     });
 });
 
