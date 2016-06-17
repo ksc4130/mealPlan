@@ -8,6 +8,42 @@ app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views/');
 app.use(express.static(__dirname + '/public'));
 
+var foods = [];
+
+app.get('/food', function (req, res) {
+    res.json(foods.filter(function (item) {
+        return !item.isDeleted;
+    }));
+});
+
+app.post('/food', function (req, res) {
+    req.body.id = foods.length + 1;
+    foods.add(req.body);
+    res.json(req.body);
+});
+
+app.put('/food', function (req, res) {
+    var found = foods.filter(function (item) {
+        return item.id === req.body.id;
+    })[0];
+    if(found) {
+        for(var prop in req.body) {
+            if(found.hasOwnProperty(prop))
+                found[prop] = req.body[prop];
+        }
+    }
+    res.end(found);
+});
+
+app.delete('/food/:foodId', function (req, res) {
+    var found = foods.filter(function (item) {
+        return item.id === req.params.foodId;
+    })[0];
+    if(found)
+        found.isDeleted = true;
+    res.end(200);
+});
+
 app.get('*', function (req, res) {
     res.render('layout', {
         title: 'The Club | Meal Plan App'
