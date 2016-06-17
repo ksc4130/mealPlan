@@ -21,7 +21,6 @@ app.get('/food', function (req, res) {
 });
 
 app.post('/food', function (req, res) {
-    console.log(req.body);
     req.body.id = foods.length + 1;
     foods.push(req.body);
     res.json(req.body);
