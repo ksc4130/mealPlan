@@ -4,10 +4,13 @@ var app = angular.module("myApp", [
 ]);
 
 app.controller('appCtrl', appCtrl);
-appCtrl.$inject = ['$scope', '$state'];
-function appCtrl($scope, $state){
+appCtrl.$inject = ['$scope', '$state', '$location'];
+function appCtrl($scope, $state, $location){
     $scope.today = new Date();
     $scope.state = $state;
+    $scope.go = function(){
+        $location.path('/dashboard');
+    }
 }
 
 app.config(config);

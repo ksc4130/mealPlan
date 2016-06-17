@@ -36,7 +36,7 @@
 
 <body id="page-top">
 
-<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top"  ng-controller="appCtrl">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -50,7 +50,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li style="padding: 12px 20px">
-                    <button style="padding: 10px 15px" class="btn btn-md btn-primary">Sign In</button>
+                    <button style="padding: 10px 15px" ng-click="go()" class="btn btn-md btn-primary">Sign In</button>
                     <!--<a class="page-scroll">Login</a>-->
                 </li>
                 <!--<li>-->
