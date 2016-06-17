@@ -93,25 +93,37 @@ aside {
         }
     }
     .nav {
-        > li {
-            > a,
-            > a:focus {
-                text-transform: uppercase;
-                font-weight: 600;
-                font-size: 13px;
-                color: @theme-dark;
-                &:hover {
-                    color: @theme-dark;
-                }
-            }
-            &.active {
-                > a,
-                > a:focus {
-                    color: @theme-dark !important;
-                    background-color: transparent;
-                    &:hover {
-                        background-color: transparent;
-                    }
+        //> li {
+        //    > a,
+        //    > a:focus {
+        //        text-transform: uppercase;
+        //        font-weight: 600;
+        //        font-size: 13px;
+        //        color: @theme-dark;
+        //        &:hover {
+        //            color: @theme-dark;
+        //        }
+        //    }
+        //    &.active {
+        //        > a,
+        //        > a:focus {
+        //            color: @theme-dark !important;
+        //            background-color: transparent;
+        //            &:hover {
+        //                background-color: transparent;
+        //            }
+        //        }
+        //    }
+        //}
+        li.sign-in{
+            padding: 12px 20px;
+            button{
+                padding: 10px 15px;
+                @media(max-width: 768px){
+                    position: fixed;
+                    top: 10px;
+                    right: 10px;
+
                 }
             }
         }
