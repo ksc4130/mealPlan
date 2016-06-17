@@ -16,13 +16,6 @@
             }
         ];
 
-        $scope.foods = [
-            {
-                name: 'Chicken',
-                servingType: 'oz',
-                size: 4,
-                calories: 100
-            }
-        ]
+        $scope.foods = foods;
     }
 }());

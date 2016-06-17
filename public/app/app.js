@@ -22,8 +22,8 @@ function config($stateProvider, $urlRouterProvider, $locationProvider) {
         templateUrl: "app/views/_dash.html",
         controller: 'dashCtrl',
         resolve: {
-            foods: [function(){
-                return [];
+            foods: ['foodSrv', function(foodSrv){
+                return foodSrv.getFoods();
             }]
         }
     }).state('addFood', {
