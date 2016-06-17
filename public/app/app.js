@@ -16,19 +16,20 @@ function config($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider.otherwise('/');
     $stateProvider.state('home', {
         url: "/",
-        templateUrl: "/app/views/_home.html"
-    }).state('post', {
-        url: "/post",
-        templateUrl: "/app/views/_post.html"
-    }).state('about', {
-        url: "/about",
-        templateUrl: "/app/views/_about.html"
-    }).state('newsletters', {
-        url: "/newsletters",
-        templateUrl: "/app/views/_newsletter.html"
-    }).state('contact', {
-        url: "/contact",
-        templateUrl: "/app/views/_contact.html"
+        templateUrl: "app/views/_home.html"
+    }).state('dashboard', {
+        url: "/dashboard",
+        templateUrl: "app/views/_dash.html",
+        controller: 'dashCtrl',
+        resolve: {
+            foods: [function(){
+                return [];
+            }]
+        }
+    }).state('addFood', {
+        url: "/add",
+        templateUrl: "app/views/_addFood.html",
+        controller: 'foodCtrl'
     });
     $locationProvider.html5Mode(true);
 }

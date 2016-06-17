@@ -1,0 +1,23 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-offset-2 col-sm-8">
+                <form class="form-horizontal" ng-submit="addFood()">
+                    <input class="form-control form-group" type="text" ng-model="food.name" placeholder="Name">
+                    <select class="form-control form-group" ng-model="food.servingType">
+                        <option value="" disabled>Select Serving Type</option>
+                        <option value="oz">Oz</option>
+                        <option value="cups">Cups</option>
+                    </select>
+                    <input class="form-control form-group" type="number" ng-model="food.size" placeholder="Serving Amount">
+                    <input class="form-control form-group" type="number" ng-model="food.calories" placeholder="Calories">
+                    <input class="form-control form-group" type="number" ng-model="food.fat" placeholder="Fat">
+                    <input class="form-control form-group" type="number" ng-model="food.carbs" placeholder="Carbs">
+                    <input class="form-control form-group" type="number" ng-model="food.protein" placeholder="Protein">
+                    <input class="form-control form-group" type="number" ng-model="food.fiber" placeholder="Fiber">
+                    <input type="submit" class="btn btn-primary btn-xl pull-right" value="Add">
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

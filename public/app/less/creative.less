@@ -81,8 +81,8 @@ aside {
     .transition-all;
     .navbar-header .navbar-brand {
         color: @theme-dark;
-        .sans-serif-font;
-        font-weight: 700;
+        .serif-font;
+        font-weight: 500;
         &:hover,
         &:focus {
             color: darken(@theme-dark, 10%);
@@ -208,19 +208,73 @@ header {
 }
 
 // Sections
+//
+//.section-heading {
+//    margin-top: 0;
+//}
+//
+//.service-box {
+//    max-width: 400px;
+//    margin: 50px auto 0;
+//    @media (min-width: 992px) {
+//        margin: 20px auto 0;
+//    }
+//    p {
+//        margin-bottom: 0;
+//    }
+//}
 
-.section-heading {
-    margin-top: 0;
+section#dashboard{
+    width: 100%;
+    min-height: 100vh;
+    .background-cover;
+    background-position: center;
+    background-image: url('../images/dash.jpg');
 }
 
-.service-box {
-    max-width: 400px;
-    margin: 50px auto 0;
-    @media (min-width: 992px) {
-        margin: 20px auto 0;
+.panel.panel-default.client-list{
+    .sans-serif-font;
+    font-size: 1.2em;
+    font-weight: 500;
+    border: none;
+    background: transparent;
+    .panel-heading{
+        background: #666;
+        color: white;
+        padding: 10px 20px;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        button{
+            position: absolute;
+            right: 15px;
+            top: 0;
+            padding: 18px 20px 17px;
+            border-radius: 0 10px 0  0;
+        }
     }
-    p {
-        margin-bottom: 0;
+    .panel-body{
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        background: rgba(255,255,255,.6);
+        .list-group{
+            margin: 0;
+            padding: 0;
+            .list-group-item{
+                .has-feedback.left {
+                    .form-control{
+                        padding-left: 42.5px;
+                    }
+                    .form-control-feedback{
+                        left: 0;
+                        right: initial;
+                    }
+                }
+                border-color: fade(@theme-dark, 5%);
+                background: transparent;
+                color: #666;
+                padding: 30px 30px;
+            }
+        }
     }
 }
 
@@ -313,6 +367,7 @@ header {
     border: none;
     border-radius: 300px;
     font-weight: 700;
+    outline: none !important;
     text-transform: uppercase;
 }
 

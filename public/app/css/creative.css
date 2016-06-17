@@ -67,8 +67,8 @@ aside {
 }
 .navbar-default .navbar-header .navbar-brand {
   color: #444444;
-  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 700;
+  font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 500;
 }
 .navbar-default .navbar-header .navbar-brand:hover,
 .navbar-default .navbar-header .navbar-brand:focus {
@@ -191,20 +191,58 @@ header .header-content .header-content-inner p {
     margin-right: auto;
   }
 }
-.section-heading {
-  margin-top: 0;
+section#dashboard {
+  width: 100%;
+  min-height: 100vh;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  background-position: center;
+  background-image: url('../images/dash.jpg');
 }
-.service-box {
-  max-width: 400px;
-  margin: 50px auto 0;
+.panel.panel-default.client-list {
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.2em;
+  font-weight: 500;
+  border: none;
+  background: transparent;
 }
-@media (min-width: 992px) {
-  .service-box {
-    margin: 20px auto 0;
-  }
+.panel.panel-default.client-list .panel-heading {
+  background: #666;
+  color: white;
+  padding: 10px 20px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 }
-.service-box p {
-  margin-bottom: 0;
+.panel.panel-default.client-list .panel-heading button {
+  position: absolute;
+  right: 15px;
+  top: 0;
+  padding: 18px 20px 17px;
+  border-radius: 0 10px 0  0;
+}
+.panel.panel-default.client-list .panel-body {
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background: rgba(255, 255, 255, 0.6);
+}
+.panel.panel-default.client-list .panel-body .list-group {
+  margin: 0;
+  padding: 0;
+}
+.panel.panel-default.client-list .panel-body .list-group .list-group-item {
+  border-color: rgba(68, 68, 68, 0.05);
+  background: transparent;
+  color: #666;
+  padding: 30px 30px;
+}
+.panel.panel-default.client-list .panel-body .list-group .list-group-item .has-feedback.left .form-control {
+  padding-left: 42.5px;
+}
+.panel.panel-default.client-list .panel-body .list-group .list-group-item .has-feedback.left .form-control-feedback {
+  left: 0;
+  right: initial;
 }
 .portfolio-box {
   position: relative;
@@ -272,8 +310,8 @@ header .header-content .header-content-inner p {
 }
 .btn-default {
   color: #666666;
-  background-color: #ffffff;
-  border-color: #ffffff;
+  background-color: white;
+  border-color: white;
   -webkit-transition: all 0.35s;
   -moz-transition: all 0.35s;
   transition: all 0.35s;
@@ -311,15 +349,15 @@ fieldset[disabled] .btn-default:active,
 .btn-default.disabled.active,
 .btn-default[disabled].active,
 fieldset[disabled] .btn-default.active {
-  background-color: #ffffff;
-  border-color: #ffffff;
+  background-color: white;
+  border-color: white;
 }
 .btn-default .badge {
-  color: #ffffff;
+  color: white;
   background-color: #666666;
 }
 .btn-primary {
-  color: #ffffff;
+  color: white;
   background-color: #7cc6f5;
   border-color: #7cc6f5;
   -webkit-transition: all 0.35s;
@@ -332,7 +370,7 @@ fieldset[disabled] .btn-default.active {
 .btn-primary:active,
 .btn-primary.active,
 .open > .dropdown-toggle.btn-primary {
-  color: #ffffff;
+  color: white;
   background-color: #64bcf3;
   border-color: #5bb8f2;
 }
@@ -364,13 +402,14 @@ fieldset[disabled] .btn-primary.active {
 }
 .btn-primary .badge {
   color: #7cc6f5;
-  background-color: #ffffff;
+  background-color: white;
 }
 .btn {
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
   border: none;
   border-radius: 300px;
   font-weight: 700;
+  outline: none !important;
   text-transform: uppercase;
 }
 .btn-xl {
