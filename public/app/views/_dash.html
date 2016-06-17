@@ -31,10 +31,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-4 col-sm-6">
-                <div class="panel panel-default client-list">
+                <div class="panel panel-default dashboard-panel">
                     <div class="panel-heading">
                         <h4>Clients</h4>
-                        <button class="btn btn-primary btn-lg add-user-btn"><i class="fa fa-user-plus"></i></button>
+                        <a class="btn btn-primary btn-lg last active"><i class="fa fa-user-plus"></i></a>
                         <div class="clearfix"></div>
                     </div>
                     <div class="panel-body no-padding">
@@ -53,13 +53,79 @@
                 </div>
             </div>
             <div class="col-lg-offset-1 col-lg-7">
-                <div class="panel panel-default client-list">
+                <div class="panel panel-default dashboard-panel">
                     <div class="panel-heading">
                         <h4>Foods</h4>
+                        <a class="btn btn-primary btn-lg active last" href="/add">
+                            Add
+                        </a>
+                        <div class="clearfix"></div>
                     </div>
-                    <div class="panel-body no-padding">
-                        <div class="col-lg-6 col-md-6 col-sm-12" ng-repeat="food in foods" style="padding: 20px">
-                            {{food.name}} | {{food.calories}} per {{food.size}} {{food.servingType}}
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr class="pointer">
+                                    <th ng-click="filterFood = 'name'; toggle()">
+                                        Food <i class="fa fa-fw" ng-class="{'fa-caret-down': filterFood === 'name' && control, 'fa-caret-up': filterFood === 'name' && !control }"></i>
+                                    </th>
+                                    <th ng-click="filterFood = 'size'; toggle()">
+                                        Serving <i class="fa fa-fw" ng-class="{'fa-caret-down': filterFood === 'size' && control, 'fa-caret-up': filterFood === 'size' && !control }"></i>
+                                    </th>
+                                    <th ng-click="filterFood = 'calories'; toggle()">
+                                        Calories <i class="fa fa-fw" ng-class="{'fa-caret-down': filterFood === 'calories' && control, 'fa-caret-up': filterFood === 'calories' && !control }"></i>
+                                    </th>
+                                    <th ng-click="filterFood = 'fat'; toggle()">
+                                        Fat <i class="fa fa-fw" ng-class="{'fa-caret-down': filterFood === 'fat' && control, 'fa-caret-up': filterFood === 'fat' && !control }"></i>
+                                    </th>
+                                    <th ng-click="filterFood = 'carbs'; toggle()">
+                                        Carbs <i class="fa fa-fw" ng-class="{'fa-caret-down': filterFood === 'carbs' && control, 'fa-caret-up': filterFood === 'carbs' && !control }"></i>
+                                    </th>
+                                    <th ng-click="filterFood = 'protein'; toggle()">
+                                        Protein <i class="fa fa-fw" ng-class="{'fa-caret-down': filterFood === 'protein' && control, 'fa-caret-up': filterFood === 'protein' && !control }"></i>
+                                    </th>
+                                    <th ng-click="filterFood = 'fiber'; toggle()">
+                                        Fiber <i class="fa fa-fw" ng-class="{'fa-caret-down': filterFood === 'fiber' && control, 'fa-caret-up': filterFood === 'fiber' && !control }"></i>
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tr ng-repeat="food in foods | orderBy:filterFood:control">
+                                    <td>{{food.name}}</td>
+                                    <td>{{food.size}} {{food.servingType}}</td>
+                                    <td>{{food.calories}}</td>
+                                    <td>{{food.fat}}</td>
+                                    <td>{{food.carbs}}</td>
+                                    <td>{{food.protein}}</td>
+                                    <td>{{food.fiber}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default dashboard-panel" style="margin-top: 50px">
+                    <div class="panel-heading">
+                        <h4>Recent Meals</h4>
+                        <a class="btn btn-primary btn-lg active last" href="/add">
+                            New
+                        </a>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr class="pointer">
+                                    <th>Date</th>
+                                    <th>Client</th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                                </thead>
+                                <tr>
+                                    <td>Monday February 12th 2001</td>
+                                    <td>Samantha Jones</td>
+                                    <td><a href="#"><i class="fa fa-fw fa-print"></i></a></td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                 </div>

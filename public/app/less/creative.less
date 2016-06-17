@@ -23,6 +23,10 @@ hr.light {
     border-color: white;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
 a {
     .transition-all;
     color: @theme-dark;
@@ -224,6 +228,27 @@ header {
 //    }
 //}
 
+section#foodForm{
+    width: 100%;
+    min-height: 80vh;
+    //.background-cover;
+    //background-position: center;
+    //background-image: url('../images/dash.jpg');
+    form{
+        .form-group{
+            margin-bottom: 8px;
+            width: 100%;
+            label {
+                width: 30%;
+                float: left;
+            }
+            input, select{
+                width: 70%;
+            }
+        }
+    }
+}
+
 section#dashboard{
     width: 100%;
     min-height: 100vh;
@@ -232,7 +257,7 @@ section#dashboard{
     background-image: url('../images/dash.jpg');
 }
 
-.panel.panel-default.client-list{
+.panel.panel-default.dashboard-panel{
     .sans-serif-font;
     font-size: 1.2em;
     font-weight: 500;
@@ -241,21 +266,38 @@ section#dashboard{
     .panel-heading{
         background: #666;
         color: white;
-        padding: 10px 20px;
+        padding: 0;
         border-top-right-radius: 10px;
         border-top-left-radius: 10px;
-        button{
-            position: absolute;
-            right: 15px;
-            top: 0;
+        h4{
+            float: left;
+            padding-left: 22px;
+            padding-top: 10px;
+        }
+        a{
+            text-transform: none;
+            float: right;
             padding: 18px 20px 17px;
-            border-radius: 0 10px 0  0;
+            border-radius: 0;
+            background: @theme-dark;
+            &:hover{
+                background: fade(@theme-dark, 20%);
+            }
+            &.active{
+                &:hover{
+                    background: darken(@theme-primary, 20%);
+                }
+                background: @theme-primary;
+            }
+            &.last{
+                border-radius: 0 10px 0  0;
+            }
         }
     }
     .panel-body{
         border-bottom-right-radius: 10px;
         border-bottom-left-radius: 10px;
-        background: rgba(255,255,255,.6);
+        background: rgba(255,255,255,.7);
         .list-group{
             margin: 0;
             padding: 0;
@@ -275,6 +317,13 @@ section#dashboard{
                 padding: 30px 30px;
             }
         }
+    }
+}
+
+table{
+    color: @theme-dark !important;
+    td{
+        padding: 15px 10px !important;
     }
 }
 

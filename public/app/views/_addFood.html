@@ -1,23 +1,57 @@
-<section>
+<section id="foodForm">
     <div class="container">
         <div class="row">
-            <div class="col-sm-offset-2 col-sm-8">
-                <form class="form-horizontal" ng-submit="addFood()" style="font-weight: 500">
-                    <input class="form-control form-group" type="text" ng-model="food.name" placeholder="Name">
-                    <select class="form-control form-group" ng-model="food.servingType">
-                        <option value="" disabled>Select Serving Type</option>
-                        <option value="oz">Oz</option>
-                        <option value="cups">Cups</option>
-                    </select>
-                    <input class="form-control form-group" type="number" ng-model="food.size" placeholder="Serving Amount">
-                    <input class="form-control form-group" type="number" ng-model="food.calories" placeholder="Calories">
-                    <input class="form-control form-group" type="number" ng-model="food.fat" placeholder="Fat">
-                    <input class="form-control form-group" type="number" ng-model="food.carbs" placeholder="Carbs">
-                    <input class="form-control form-group" type="number" ng-model="food.protein" placeholder="Protein">
-                    <input class="form-control form-group" type="number" ng-model="food.fiber" placeholder="Fiber">
+            <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+                <form class="form-inline" ng-submit="addFood()" style="font-weight: 500">
+                    <h3 class="text-center">Food Nutritional Information</h3>
+                    <hr>
+                    <div class="form-group">
+                        <label>Food Name</label>
+                        <input class="form-control form-group" type="text" ng-model="food.name" placeholder="Chicken">
+                    </div>
+                    <div class="form-group">
+                        <label>Ounces / Cups</label>
+                        <select class="form-control form-group" ng-model="food.servingType">
+                            <option value="" disabled>Select Serving Type</option>
+                            <option value="oz">Oz</option>
+                            <option value="cups">Cups</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Serving Size</label>
+                        <input class="form-control form-group" type="number" ng-model="food.size">
+                    </div>
+                    <div class="form-group">
+                        <label>Calories</label>
+                        <input class="form-control form-group" type="number" ng-model="food.calories">
+                    </div>
+                    <div class="form-group">
+                        <label>Fat</label>
+                        <input class="form-control form-group" type="number" ng-model="food.fat">
+                    </div>
+                    <div class="form-group">
+                        <label>Carbs</label>
+                        <input class="form-control form-group" type="number" ng-model="food.carbs">
+                    </div>
+                    <div class="form-group">
+                        <label>Protein</label>
+                        <input class="form-control form-group" type="number" ng-model="food.protein">
+                    </div>
+                    <div class="form-group">
+                        <label>Fiber</label>
+                        <input class="form-control form-group" type="number" ng-model="food.fiber">
+                    </div>
                     <input type="submit" class="btn btn-primary btn-xl pull-right" value="Add">
                 </form>
             </div>
         </div>
     </div>
 </section>
+<aside class="bg-dark">
+    <div class="container text-center">
+        <div class="call-to-action">
+            <img src="../app/images/icon_white.png" style="width: 10vh"><br><br>
+            <h2>Feel Better. Live Better.</h2>
+        </div>
+    </div>
+</aside>

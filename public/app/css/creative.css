@@ -15,6 +15,9 @@ hr {
 hr.light {
   border-color: white;
 }
+.pointer {
+  cursor: pointer;
+}
 a {
   -webkit-transition: all 0.35s;
   -moz-transition: all 0.35s;
@@ -191,6 +194,22 @@ header .header-content .header-content-inner p {
     margin-right: auto;
   }
 }
+section#foodForm {
+  width: 100%;
+  min-height: 80vh;
+}
+section#foodForm form .form-group {
+  margin-bottom: 8px;
+  width: 100%;
+}
+section#foodForm form .form-group label {
+  width: 30%;
+  float: left;
+}
+section#foodForm form .form-group input,
+section#foodForm form .form-group select {
+  width: 70%;
+}
 section#dashboard {
   width: 100%;
   min-height: 100vh;
@@ -201,48 +220,71 @@ section#dashboard {
   background-position: center;
   background-image: url('../images/dash.jpg');
 }
-.panel.panel-default.client-list {
+.panel.panel-default.dashboard-panel {
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
   font-size: 1.2em;
   font-weight: 500;
   border: none;
   background: transparent;
 }
-.panel.panel-default.client-list .panel-heading {
+.panel.panel-default.dashboard-panel .panel-heading {
   background: #666;
   color: white;
-  padding: 10px 20px;
+  padding: 0;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
 }
-.panel.panel-default.client-list .panel-heading button {
-  position: absolute;
-  right: 15px;
-  top: 0;
+.panel.panel-default.dashboard-panel .panel-heading h4 {
+  float: left;
+  padding-left: 22px;
+  padding-top: 10px;
+}
+.panel.panel-default.dashboard-panel .panel-heading a {
+  text-transform: none;
+  float: right;
   padding: 18px 20px 17px;
+  border-radius: 0;
+  background: #444444;
+}
+.panel.panel-default.dashboard-panel .panel-heading a:hover {
+  background: rgba(68, 68, 68, 0.2);
+}
+.panel.panel-default.dashboard-panel .panel-heading a.active {
+  background: #7cc6f5;
+}
+.panel.panel-default.dashboard-panel .panel-heading a.active:hover {
+  background: #1d9dee;
+}
+.panel.panel-default.dashboard-panel .panel-heading a.last {
   border-radius: 0 10px 0  0;
 }
-.panel.panel-default.client-list .panel-body {
+.panel.panel-default.dashboard-panel .panel-body {
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.7);
 }
-.panel.panel-default.client-list .panel-body .list-group {
+.panel.panel-default.dashboard-panel .panel-body .list-group {
   margin: 0;
   padding: 0;
 }
-.panel.panel-default.client-list .panel-body .list-group .list-group-item {
+.panel.panel-default.dashboard-panel .panel-body .list-group .list-group-item {
   border-color: rgba(68, 68, 68, 0.05);
   background: transparent;
   color: #666;
   padding: 30px 30px;
 }
-.panel.panel-default.client-list .panel-body .list-group .list-group-item .has-feedback.left .form-control {
+.panel.panel-default.dashboard-panel .panel-body .list-group .list-group-item .has-feedback.left .form-control {
   padding-left: 42.5px;
 }
-.panel.panel-default.client-list .panel-body .list-group .list-group-item .has-feedback.left .form-control-feedback {
+.panel.panel-default.dashboard-panel .panel-body .list-group .list-group-item .has-feedback.left .form-control-feedback {
   left: 0;
   right: initial;
+}
+table {
+  color: #444444 !important;
+}
+table td {
+  padding: 15px 10px !important;
 }
 .portfolio-box {
   position: relative;

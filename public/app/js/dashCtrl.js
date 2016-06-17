@@ -17,5 +17,9 @@
         ];
 
         $scope.foods = foods;
+        $scope.filterFood = 'name';
+        $scope.toggle = function(){
+            $scope.control = !$scope.control;
+        }
     }
 }());

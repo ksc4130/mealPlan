@@ -1,8 +1,12 @@
-var express = require('express');
+var express = require('express'),
+    bodyParser = require('body-parser');
 var http = require('http');
 var port = process.env.NODE_ENV == 'p' ? 80 : 8080;
 
 var app = express();
+
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views/');
@@ -17,8 +21,9 @@ app.get('/food', function (req, res) {
 });
 
 app.post('/food', function (req, res) {
+    console.log(req.body);
     req.body.id = foods.length + 1;
-    foods.add(req.body);
+    foods.push(req.body);
     res.json(req.body);
 });
 
