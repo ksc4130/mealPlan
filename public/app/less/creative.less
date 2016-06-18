@@ -43,6 +43,10 @@ h4,
 h5,
 h6 {
     .sans-serif-font;
+    font-weight: 600;
+    &.light{
+        font-weight: 300;
+    }
 }
 
 p {
@@ -223,23 +227,6 @@ header {
     }
 }
 
-// Sections
-//
-//.section-heading {
-//    margin-top: 0;
-//}
-//
-//.service-box {
-//    max-width: 400px;
-//    margin: 50px auto 0;
-//    @media (min-width: 992px) {
-//        margin: 20px auto 0;
-//    }
-//    p {
-//        margin-bottom: 0;
-//    }
-//}
-
 section#foodForm{
     width: 100%;
     min-height: 80vh;
@@ -247,18 +234,22 @@ section#foodForm{
     //background-position: center;
     //background-image: url('../images/dash.jpg');
     form{
+        .control-label{
+            padding-top: 14px;
+        }
         .form-group{
             margin-bottom: 8px;
-            width: 100%;
-            label {
-                width: 30%;
-                float: left;
-            }
-            input, select{
-                width: 70%;
+            @media(max-width: 768px){
+                margin-left: 0;
+                margin-right: 0;
             }
         }
     }
+}
+
+.form-control.form-control-inline{
+    max-width: 70px;
+    display: inline-block;
 }
 
 section#dashboard{

@@ -27,12 +27,24 @@ function config($stateProvider, $urlRouterProvider, $locationProvider) {
         resolve: {
             foods: ['foodSrv', function(foodSrv){
                 return foodSrv.getFoods();
+            }],
+            meals: ['mealSrv', function(mealSrv){
+                return mealSrv.getMeals();
             }]
         }
     }).state('addFood', {
         url: "/add",
         templateUrl: "app/views/_addFood.html",
         controller: 'foodCtrl'
+    }).state('meal', {
+        url: "/create",
+        templateUrl: "app/views/_meal.html",
+        controller: 'mealCtrl',
+        resolve: {
+            foods: ['foodSrv', function(foodSrv){
+                return foodSrv.getFoods();
+            }]
+        }
     });
     $locationProvider.html5Mode(true);
 }

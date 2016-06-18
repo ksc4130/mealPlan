@@ -12,7 +12,8 @@
     "bower_components",
     "public/vendor",
     "test",
-    "tests"
+    "tests",
+    ".idea"
   ],
   "dependencies": {
     "angular-bootstrap": "~1.0.0",

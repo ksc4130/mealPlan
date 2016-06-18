@@ -13,9 +13,16 @@ app.set('views', __dirname + '/views/');
 app.use(express.static(__dirname + '/public'));
 
 var foods = [];
+var meals = [];
 
 app.get('/food', function (req, res) {
     res.json(foods.filter(function (item) {
+        return !item.isDeleted;
+    }));
+});
+
+app.get('/meal', function (req, res) {
+    res.json(meals.filter(function (item) {
         return !item.isDeleted;
     }));
 });
@@ -26,8 +33,27 @@ app.post('/food', function (req, res) {
     res.json(req.body);
 });
 
+app.post('/meal', function (req, res) {
+    req.body.id = meals.length + 1;
+    meals.push(req.body);
+    res.json(req.body);
+});
+
 app.put('/food', function (req, res) {
     var found = foods.filter(function (item) {
+        return item.id === req.body.id;
+    })[0];
+    if(found) {
+        for(var prop in req.body) {
+            if(found.hasOwnProperty(prop))
+                found[prop] = req.body[prop];
+        }
+    }
+    res.end(found);
+});
+
+app.put('/meal', function (req, res) {
+    var found = meals.filter(function (item) {
         return item.id === req.body.id;
     })[0];
     if(found) {

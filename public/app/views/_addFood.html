@@ -2,44 +2,60 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
-                <form class="form-inline" ng-submit="addFood()" style="font-weight: 500">
+                <form class="form-horizontal" ng-submit="addFood()" style="font-weight: 500">
                     <h3 class="text-center">Food Nutritional Information</h3>
                     <hr>
                     <div class="form-group">
-                        <label>Food Name</label>
-                        <input class="form-control form-group" type="text" ng-model="food.name" placeholder="Chicken">
+                        <label class="control-label col-sm-3">Food Name</label>
+                        <div class="col-sm-9">
+                            <input class="input-lg form-control form-group" type="text" ng-model="food.name" placeholder="Chicken">
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label>Ounces / Cups</label>
-                        <select class="form-control form-group" ng-model="food.servingType">
-                            <option value="" disabled>Select Serving Type</option>
-                            <option value="oz">Oz</option>
-                            <option value="cups">Cups</option>
-                        </select>
+                        <label class="control-label col-sm-3">Ounces / Cups</label>
+                        <div class="col-sm-9">
+                            <select class="input-lg form-control form-group" ng-model="food.servingType">
+                                <option value="" disabled>Select Serving Type</option>
+                                <option value="oz">Oz</option>
+                                <option value="cups">Cups</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label>Serving Size</label>
-                        <input class="form-control form-group" type="number" ng-model="food.size">
+                        <label class="control-label col-sm-3">Serving Size</label>
+                        <div class="col-sm-9">
+                            <input class="input-lg form-control form-group" type="number" ng-model="food.size">
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label>Calories</label>
-                        <input class="form-control form-group" type="number" ng-model="food.calories">
+                        <label class="control-label col-sm-3">Calories</label>
+                        <div class="col-sm-9">
+                            <input class="input-lg form-control form-group" type="number" ng-model="food.calories">
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label>Fat</label>
-                        <input class="form-control form-group" type="number" ng-model="food.fat">
+                        <label class="control-label col-sm-3">Fat</label>
+                        <div class="col-sm-9">
+                            <input class="input-lg form-control form-group" type="number" ng-model="food.fat">
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label>Carbs</label>
-                        <input class="form-control form-group" type="number" ng-model="food.carbs">
+                        <label class="control-label col-sm-3">Carbs</label>
+                        <div class="col-sm-9">
+                            <input class="input-lg form-control form-group" type="number" ng-model="food.carbs">
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label>Protein</label>
-                        <input class="form-control form-group" type="number" ng-model="food.protein">
+                        <label class="control-label col-sm-3">Protein</label>
+                        <div class="col-sm-9">
+                            <input class="input-lg form-control form-group" type="number" ng-model="food.protein">
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label>Fiber</label>
-                        <input class="form-control form-group" type="number" ng-model="food.fiber">
+                        <label class="control-label col-sm-3">Fiber</label>
+                        <div class="col-sm-9">
+                            <input class="input-lg form-control form-group" type="number" ng-model="food.fiber">
+                        </div>
                     </div>
                     <input type="submit" class="btn btn-primary btn-xl pull-right" value="Add">
                 </form>
