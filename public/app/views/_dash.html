@@ -97,15 +97,19 @@
                             <table class="table">
                                 <thead>
                                 <tr>
+                                    <th>&nbsp;</th>
                                     <th>Date</th>
                                     <th>Client</th>
+                                    <th>Calories</th>
                                     <th>&nbsp;</th>
                                 </tr>
                                 </thead>
                                 <tr ng-repeat="meal in meals">
+                                    <td><a href="/edit/{{meal.id}}" class="btn btn-primary btn-md"><i class="fa fa-pencil"></i></a></td>
                                     <td>{{meal.date | date:'short'}}</td>
-                                    <td>Samantha Jones</td>
-                                    <td><a href="#"><i class="fa fa-fw fa-print"></i></a></td>
+                                    <td>{{meal.client}}</td>
+                                    <td>{{meal.totals.calories}}</td>
+                                    <td><a href="/print/{{meal.id}}"><i class="fa fa-fw fa-print"></i></a></td>
                                 </tr>
                             </table>
                         </div>

@@ -2,9 +2,16 @@
     'use strict';
     angular.module('myApp')
         .controller('mealCtrl', mealCtrl);
-    mealCtrl.$inject = ['$scope', 'mealSrv', 'foods'];
-    function mealCtrl($scope, mealSrv, foods){
-        $scope.meal = {
+    mealCtrl.$inject = ['$scope', 'mealSrv', 'foods', 'meal', 'print', '$timeout'];
+    function mealCtrl($scope, mealSrv, foods, meal, print, $timeout){
+
+        $timeout(function(){
+            if(print){
+                window.print();
+            }
+        }, 500);
+
+        $scope.meal = meal || {
             breakfast: {
                 foods: []
             },
@@ -15,6 +22,19 @@
                 foods: []
             }
         };
+
+        $scope.clients = [
+            {
+                name: 'Regina George'
+            },
+            {
+                name: 'Samantha Jones'
+            },
+            {
+                name: 'Donny Walhberg'
+            }
+        ];
+
         $scope.foods = foods;
         var count = 1;
 
@@ -40,21 +60,33 @@
             }
         };
 
-        $scope.meal.totals = {
-            calories: $scope.totalSum($scope.meal.breakfast.foods, 'calories') + $scope.totalSum($scope.meal.lunch.foods, 'calories') + $scope.totalSum($scope.meal.dinner.foods, 'calories'),
-            protein: $scope.totalSum($scope.meal.breakfast.foods, 'protein') + $scope.totalSum($scope.meal.lunch.foods, 'protein') + $scope.totalSum($scope.meal.dinner.foods, 'protein'),
-            fat: $scope.totalSum($scope.meal.breakfast.foods, 'fat') + $scope.totalSum($scope.meal.lunch.foods, 'fat') + $scope.totalSum($scope.meal.dinner.foods, 'fat'),
-            fiber: $scope.totalSum($scope.meal.breakfast.foods, 'fiber') + $scope.totalSum($scope.meal.lunch.foods, 'fiber') + $scope.totalSum($scope.meal.dinner.foods, 'fiber'),
-            carbs: $scope.totalSum($scope.meal.breakfast.foods, 'carbs') + $scope.totalSum($scope.meal.lunch.foods, 'carbs') + $scope.totalSum($scope.meal.dinner.foods, 'carbs')
+        $scope.runningTotals = function(){
+
+            return {
+                calories: $scope.totalSum($scope.meal.breakfast.foods, 'calories') + $scope.totalSum($scope.meal.lunch.foods, 'calories') + $scope.totalSum($scope.meal.dinner.foods, 'calories'),
+                protein: $scope.totalSum($scope.meal.breakfast.foods, 'protein') + $scope.totalSum($scope.meal.lunch.foods, 'protein') + $scope.totalSum($scope.meal.dinner.foods, 'protein'),
+                fat: $scope.totalSum($scope.meal.breakfast.foods, 'fat') + $scope.totalSum($scope.meal.lunch.foods, 'fat') + $scope.totalSum($scope.meal.dinner.foods, 'fat'),
+                fiber: $scope.totalSum($scope.meal.breakfast.foods, 'fiber') + $scope.totalSum($scope.meal.lunch.foods, 'fiber') + $scope.totalSum($scope.meal.dinner.foods, 'fiber'),
+                carbs: $scope.totalSum($scope.meal.breakfast.foods, 'carbs') + $scope.totalSum($scope.meal.lunch.foods, 'carbs') + $scope.totalSum($scope.meal.dinner.foods, 'carbs')
+            }
         };
 
         $scope.save = function(){
+            $scope.meal.totals = $scope.runningTotals();
             $scope.meal.date = new Date();
-            mealSrv.saveMeal($scope.meal).then(function(){
-                $scope.finished = true;
-            }, function(resp){
-                console.log(resp);
-            });
+            if($scope.meal.id){
+                mealSrv.updateMeal($scope.meal).then(function(){
+                    $scope.finished = true;
+                }, function(resp){
+                    console.log(resp);
+                });
+            } else {
+                mealSrv.saveMeal($scope.meal).then(function(){
+                    $scope.finished = true;
+                }, function(resp){
+                    console.log(resp);
+                });
+            }
         }
     }
 }());

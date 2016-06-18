@@ -36,13 +36,49 @@ function config($stateProvider, $urlRouterProvider, $locationProvider) {
         url: "/add",
         templateUrl: "app/views/_addFood.html",
         controller: 'foodCtrl'
-    }).state('meal', {
+    }).state('createMeal', {
         url: "/create",
         templateUrl: "app/views/_meal.html",
         controller: 'mealCtrl',
         resolve: {
+            meal: [function(){
+                return null;
+            }],
             foods: ['foodSrv', function(foodSrv){
                 return foodSrv.getFoods();
+            }],
+            print: [function(){
+                return false;
+            }]
+        }
+    }).state('editMeal', {
+        url: "/edit/:id",
+        templateUrl: "app/views/_meal.html",
+        controller: 'mealCtrl',
+        resolve: {
+            meal: ['mealSrv', '$stateParams', function(mealSrv, $stateParams){
+                return mealSrv.getMeal($stateParams.id);
+            }],
+            foods: ['foodSrv', function(foodSrv){
+                return foodSrv.getFoods();
+            }],
+            print: [function(){
+                return false;
+            }]
+        }
+    }).state('printMeal', {
+        url: "/print/:id",
+        templateUrl: "app/views/_meal.html",
+        controller: 'mealCtrl',
+        resolve: {
+            meal: ['mealSrv', '$stateParams', function(mealSrv, $stateParams){
+                return mealSrv.getMeal($stateParams.id);
+            }],
+            foods: ['foodSrv', function(foodSrv){
+                return foodSrv.getFoods();
+            }],
+            print: [function(){
+                return true;
             }]
         }
     });
